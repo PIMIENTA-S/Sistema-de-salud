@@ -1,0 +1,58 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50">
+    <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-xl w-full max-w-6xl overflow-hidden">
+      <!-- Formulario de registro -->
+      <div class="w-full md:w-1/2 p-10 bg-white flex flex-col justify-center">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Crear una cuenta</h2>
+        <form [formGroup]="registerForm">
+          <div class="mb-6">
+            <label for="fullName" class="block text-gray-600 text-sm font-semibold">Nombre completo</label>
+            <input type="text" formControlName="fullName" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="block">
+                <div *ngIf="fullName.errors?.['required']" class="text-red-500 mt-0">Este campo es requerido</div>
+                <div *ngIf="fullName.errors?.['pattern']" class="text-red-500 mt-0">Ingresa un Nombre valido</div>
+            </small>
+          </div>
+          <div class="mb-6">
+            <label for="id" class="block text-gray-600 text-sm font-semibold">ID o Cédula</label>
+            <input type="number" formControlName="id" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <small *ngIf="id.invalid && (id.dirty || id.touched)" class="block">
+                <div *ngIf="id.errors?.['required']" class="text-red-500 mt-0">Este campo es requerido</div>
+                
+            </small>
+          </div>
+          <div class="mb-6">
+            <label for="password" class="block text-gray-600 text-sm font-semibold">Contraseña</label>
+            <input type="password" formControlName="password" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block">
+                <div *ngIf="password.errors?.['required']" class="text-red-500 mt-0">Este campo es requerido</div>
+            </small>
+          </div>
+          <div class="mb-6">
+            <label for="confirmPassword" class="block text-gray-600 text-sm font-semibold">Confirmar contraseña</label>
+            <input type="password" formControlName="confirmPassword" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <small *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="block">
+                <div *ngIf="confirmPassword.errors?.['required']" class="text-red-500 mt-0">Este campo es requerido</div>
+            </small>
+          </div>
+          <button type="submit" [disabled]="registerForm.invalid" class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
+            <div [ngClass]="{'text-gray-400': registerForm.invalid, 'text-white': registerForm.valid}">
+                Registrar
+            </div>
+          </button>
+        </form>
+        <p class="text-center text-sm text-gray-500 mt-6">
+          ¿Ya tienes una cuenta? <a routerLink="/login" class="text-blue-600 font-semibold hover:underline">Inicia sesión</a>
+        </p>
+      </div>
+  
+      <!-- Imagen de bienvenida -->
+      <div class="hidden md:block w-full md:w-1/2 bg-blue-600 flex items-center justify-center">
+        <div class="text-center">
+          <img src="assets/img/cat.svg" alt="Imagen de bienvenida" class="h-56 mx-auto mb-4">
+          <h3 class="text-white text-2xl font-bold">¡Bienvenido!</h3>
+          <p class="text-blue-100 mt-2">Regístrate para comenzar tu experiencia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
