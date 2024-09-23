@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family : 'FS-Joey';
+    src         : url('./assets/fonts/FS-Joey-Medium-Regular.ttf');
+}
