@@ -1,1 +1,49 @@
-<p>consult-appointment works!</p>
+<div class="min-h-screen flex flex-col">
+    <!-- Opciones Section -->
+    <section class="bg-blue-600 text-white py-4 text-center">
+      <div class="flex justify-center space-x-4">
+        <button 
+          (click)="setAppointmentType('presencial')" 
+          [ngClass]="{'bg-orange-500': appointmentType === 'presencial', 'bg-blue-700': appointmentType !== 'presencial'}" 
+          class="px-6 py-2 font-bold rounded hover:bg-orange-600 transition">
+          Presencial
+        </button>
+        <button 
+          (click)="setAppointmentType('virtual')" 
+          [ngClass]="{'bg-orange-500': appointmentType === 'virtual', 'bg-blue-700': appointmentType !== 'virtual'}" 
+          class="px-6 py-2 font-bold rounded hover:bg-orange-600 transition">
+          Virtual
+        </button>
+      </div>
+    </section>
+  
+    <!-- Estructura de Formularios Section -->
+    <section class="container mx-auto py-8">
+      <div class="bg-white shadow-lg rounded-lg p-4">
+        <h2 class="text-2xl font-bold text-center mb-4">Estructura de Citas Médicas</h2>
+        <table class="table-auto w-full border-collapse border border-gray-300">
+          <thead class="bg-blue-600 text-white">
+            <tr>
+              <th class="px-4 py-2 border border-gray-300">Especialidad</th>
+              <th class="px-4 py-2 border border-gray-300">Disponibilidad</th>
+              <th class="px-4 py-2 border border-gray-300">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let appointment of appointmentList">
+              <td class="border border-gray-300 px-4 py-2">{{ appointment.type }}</td>
+              <td class="border border-gray-300 px-4 py-2">{{ appointment.availability }}</td>
+              <td class="border border-gray-300 px-4 py-2 text-center">
+                <button 
+                  (click)="bookAppointment(appointment)" 
+                  class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+                  Reservar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  
