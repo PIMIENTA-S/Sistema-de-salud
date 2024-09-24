@@ -9,13 +9,14 @@
         </div>
         <!-- Navbar -->
         <nav class="flex space-x-8 text-lg font-medium">
+            <a routerLink="/home" class="text-gray-700 hover:text-blue-600">Inicio</a>
             <a routerLink="/nosotros" class="text-gray-700 hover:text-blue-600">Nosotros</a>
             <div class="relative group inline-block">
                 <button class="text-gray-700 hover:text-blue-600 focus:outline-none">Red de Atención</button>
                 <!-- Dropdown -->
                 <div class="hidden group-hover:block absolute right-0 bg-white shadow-lg rounded-lg">
-                    <a href="#" class="block px-6 py-2 text-gray-700 hover:bg-blue-100">Historia</a>
-                    <a href="#" class="block px-6 py-2 text-gray-700 hover:bg-blue-100">Citas</a>
+                    <a routerLink="/historia-clinica" class="block px-6 py-2 text-gray-700 hover:bg-blue-100">Historia</a>
+                    <a routerLink="/citas" class="block px-6 py-2 text-gray-700 hover:bg-blue-100">Citas</a>
                 </div>
             </div>
                 <a href="#" class="text-gray-700 hover:text-blue-600">Cuenta</a>
