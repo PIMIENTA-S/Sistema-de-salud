@@ -1,2 +1,25 @@
 <p-toast></p-toast>
+<!-- Header (Logo y Navbar) -->
+<header class="bg-white shadow-md sticky top-0 z-10">
+    <div class="container mx-auto flex justify-between items-center py-4">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <a routerLink="/home"><img src="assets/img/cat.svg" alt="Logo" class="h-12"></a>
+            <span class="text-2xl font-bold text-blue-600">Septi Salud</span>
+        </div>
+        <!-- Navbar -->
+        <nav class="flex space-x-8 text-lg font-medium">
+            <a routerLink="/nosotros" class="text-gray-700 hover:text-blue-600">Nosotros</a>
+            <div class="relative group inline-block">
+                <button class="text-gray-700 hover:text-blue-600 focus:outline-none">Red de Atención</button>
+                <!-- Dropdown -->
+                <div class="hidden group-hover:block absolute right-0 bg-white shadow-lg rounded-lg">
+                    <a href="#" class="block px-6 py-2 text-gray-700 hover:bg-blue-100">Historia</a>
+                    <a href="#" class="block px-6 py-2 text-gray-700 hover:bg-blue-100">Citas</a>
+                </div>
+            </div>
+                <a href="#" class="text-gray-700 hover:text-blue-600">Cuenta</a>
+        </nav>
+    </div>
+</header>
 <router-outlet></router-outlet>

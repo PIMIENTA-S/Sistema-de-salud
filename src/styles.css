@@ -6,3 +6,9 @@
     font-family : 'FS-Joey';
     src         : url('./assets/fonts/FS-Joey-Medium-Regular.ttf');
 }
+
+* 
+{
+  font-family: 'FS-Joey', sans-serif;
+  font-weight: bold;
+}
