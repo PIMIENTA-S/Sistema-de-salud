@@ -44,9 +44,12 @@ export class LoginHomeComponent {
       response => {
         if(response.length > 0 && response[0].password === password){
           sessionStorage.setItem('id', id!.toString());
+          //alert('Inicio de sesion exitoso')
           this.router.navigate(['/home']);
         }else{
-          // MessageService TO-DO 
+          // MessageService TO-DO
+          alert('Usuario o contraseña incorrecta');
+          this.loginForm.reset();
         }
       }
     )
