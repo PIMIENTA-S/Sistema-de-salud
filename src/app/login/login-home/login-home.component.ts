@@ -9,13 +9,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './login-home.component.html',
-  styles:`
-  * 
-  {
-    font-family: 'FS-Joey', sans-serif;
-    font-weight: bold;
-  }
-  `
+  styles:``
 })
 export class LoginHomeComponent {
   loginForm = this.fb.group({

@@ -6,7 +6,6 @@ import { passwordMacthValidator } from '../../directive/password-match.directive
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../interface/auth';
 import { HttpClientModule } from '@angular/common/http';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register',
@@ -18,6 +17,7 @@ import { MessageService } from 'primeng/api';
 })
 export class RegisterComponent {
   registerForm = this.fb.group({
+    // se verifica que el nombre sea correcto es decir no hayan numeros
     fullName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     id: ['', Validators.required],
     password: ['', Validators.required],
@@ -27,17 +27,12 @@ export class RegisterComponent {
     validators: passwordMacthValidator
   }
 )
-
   constructor(
     private fb: FormBuilder, 
     private authService: AuthService, 
-    private messageService: MessageService,
     private router: Router,
   ){}
 
-  ngOnInit() {
-    this.messageService.add({ severity: 'info', summary: 'Toast Test', detail: 'Esto es una prueba' });
-  }
 
   get fullName(){
     return this.registerForm.controls['fullName']
@@ -61,12 +56,14 @@ export class RegisterComponent {
 
     this.authService.registerUser(postData as User).subscribe(
       reponse => {
-        console.log(reponse);
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Registrado correctamente' });
+        // console.log(reponse);
+        alert("Registrado correctamente")
+        //this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Registrado correctamente' });
         this.router.navigate(['login'])
       },
       error => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ha ocurrido un error' });
+        alert('Ha ocurrido un error')
+        //this.messageService.add({ severity: 'error', summary: 'Error', detail: '' });
       }
       
     )
