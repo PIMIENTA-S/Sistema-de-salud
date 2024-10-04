@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ConsultAppointmentComponent } from './pages/consult-appointment/consult-appointment.component';
 import { HistoryComponent } from './pages/history-user/history.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -17,19 +18,23 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'nosotros',
-        component: ContactComponent
+        component: ContactComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'citas',
-        component: ConsultAppointmentComponent
+        component: ConsultAppointmentComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'historia-clinica',
-        component: HistoryComponent
+        component: HistoryComponent,
+        canActivate: [authGuard]
     },
     {
         path:'**',
