@@ -32,23 +32,35 @@ export class LoginHomeComponent {
     return this.loginForm.controls['password']
   }
 
-  loginUser(){
+  loginUser() {
     const {id, password} = this.loginForm.value;
+    
+    // Convertimos el ID a número si es necesario
     this.authService.getUserById(Number(id)).subscribe(
       response => {
-        if(response.length > 0 && response[0].password === password){
-          sessionStorage.setItem('id', id!.toString());
-          //alert('Inicio de sesion exitoso')
-          this.router.navigate(['/home']);
-        }else{
-          // MessageService TO-DO
-          alert('Usuario o contraseña incorrecta');
+        if (response) {
+          if (response.password === password) {
+            // Guardamos el ID en la sesión y redirigimos al home
+            sessionStorage.setItem('id', id!.toString());
+            this.router.navigate(['/home']);
+          } else {
+            // Contraseña incorrecta
+            alert('Usuario o contraseña incorrecta');
+            this.loginForm.reset();
+          }
+        } else {
+          // Usuario no encontrado
+          alert('Usuario no encontrado');
           this.loginForm.reset();
         }
+      },
+      error => {
+        // Manejo de errores HTTP
+        console.error('Error al intentar autenticar el usuario', error);
+        alert('Hubo un problema al intentar iniciar sesión. Inténtalo de nuevo más tarde.');
       }
-    )
-    
-
+    );
   }
+  
 
 }

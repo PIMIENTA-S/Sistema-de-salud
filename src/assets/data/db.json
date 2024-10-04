@@ -1,0 +1,19 @@
+{
+    "users": [
+      {
+        "id": 1234,
+        "fullName": "Saira Pimienta",
+        "password": "zara"
+      },
+      {
+        "id": 2020,
+        "fullName": "Angel el pro",
+        "password": "angel"
+      },
+      {
+        "id": 56030,
+        "fullName": "Juan Pineda",
+        "password": "juanpi"
+      }
+    ]
+  }
