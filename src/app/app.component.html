@@ -6,8 +6,19 @@
             <a routerLink="/home"><img src="assets/img/cat.svg" alt="Logo" class="h-12"></a>
             <span class="text-2xl font-bold text-blue-600">Septi Salud</span>
         </div>
-        <!-- Navbar -->
-        <nav class="flex space-x-8 text-lg font-medium">
+
+        <!-- Botón Hamburguesa (Visible en pantallas pequeñas) -->
+        <div class="lg:hidden">
+            <button (click)="isMenuOpen = !isMenuOpen" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                <!-- Icono de Hamburguesa -->
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Navbar (Visible solo en pantallas grandes) -->
+        <nav class="hidden lg:flex space-x-8 text-lg font-medium">
             <a routerLink="/home" class="text-gray-700 hover:text-blue-600">Inicio</a>
             <a routerLink="/nosotros" class="text-gray-700 hover:text-blue-600">Nosotros</a>
             <div class="relative group inline-block">
@@ -18,10 +29,28 @@
                     <a routerLink="/citas" class="block px-6 py-2 text-gray-700 hover:bg-blue-100">Citas</a>
                 </div>
             </div>
-            <a routerLink="/login" routerLinkActive="router-link-active"  class="text-gray-700 hover:text-blue-600" (click)="logOut()" >Cerrar Sesion</a>
+            <a routerLink="/login" class="text-gray-700 hover:text-blue-600" (click)="logOut()">Cerrar Sesion</a>
         </nav>
+
+        <!-- Navbar Responsive (Visible solo en pantallas pequeñas cuando se haga clic en el botón de hamburguesa) -->
+
     </div>
-  </header>
+    <nav *ngIf="isMenuOpen" class="flex flex-col space-y-4 mt-4 text-lg font-medium lg:hidden bg-white shadow-lg p-4 rounded-lg">
+        <a routerLink="/home" (click)="isMenuOpen = false" class="text-gray-700 hover:text-blue-600">Inicio</a>
+        <a routerLink="/nosotros" (click)="isMenuOpen = false" class="text-gray-700 hover:text-blue-600">Nosotros</a>
+        <div class="relative">
+            <button class="text-gray-700 hover:text-blue-600 focus:outline-none">Red de Atención</button>
+            <!-- Dropdown -->
+            <div class="bg-white shadow-lg rounded-lg mt-2">
+                <a routerLink="/historia-clinica" (click)="isMenuOpen = false" class="block px-6 py-2 text-gray-700 hover:bg-blue-100">Historia</a>
+                <a routerLink="/citas" (click)="isMenuOpen = false" class="block px-6 py-2 text-gray-700 hover:bg-blue-100">Citas</a>
+            </div>
+        </div>
+        <a routerLink="/login" (click)="isMenuOpen = false" class="text-gray-700 hover:text-blue-600" (click)="logOut()">Cerrar Sesion</a>
+    </nav>
+</header>
+
+
 <shared-btn-cat></shared-btn-cat>
 <router-outlet></router-outlet>
 
