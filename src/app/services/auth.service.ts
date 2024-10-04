@@ -1,21 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../interface/auth';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  private baseUrl = 'http://localhost:3000';
+export class  AuthService {
+  private baseUrl = 'assets/data/db.json';
+
 
   constructor(private http: HttpClient) { }
 
+  // Registrar un usuario
   registerUser(user: User): Observable<User>{
-    return this.http.post(`${this.baseUrl}/users`, user)
+    // const fs = require('fs');
+
+    // fs.readFile(this.baseUrl, 'utf8', (err: any, data: any) =>{
+    //   if (err){
+    //     console.error("erro", err);
+    //     return;
+    //   }
+    // })
+    return this.http.post<User>(this.baseUrl, user);
   }
-
-  getUserById(id: number): Observable<User[]>{
-    return this.http.get<User[]>(`${this.baseUrl}/users?id=${id}`)
-
+  
+  // Obtener un usuario por su ID
+  getUserById(id: number): Observable<User | undefined> {
+    return this.http.get<{users: User[]}>(this.baseUrl).pipe(
+      map(response => response.users.find(user => user.id === id))
+    );
   }
 }
