@@ -12,18 +12,14 @@
         <h2 class="text-3xl font-bold text-blue-600 mb-6">Políticas de Privacidad</h2>
         <div class="text-justify text-gray-700 space-y-6">
           <p>En Septi-Salud, valoramos la confianza que depositas en nosotros. Nos comprometemos a proteger tu privacidad y a utilizar tus datos personales de forma responsable. Esta política describe cómo recopilamos, utilizamos, almacenamos y protegemos tu información personal.</p>
-  
-          <h3 class="text-2xl font-semibold text-gray-800">1. Información que Recopilamos</h3>
-          <p>Recopilamos información personal cuando te registras en nuestro sitio, te pones en contacto con nosotros o utilizas nuestros servicios. Esto incluye datos como tu nombre, dirección de correo electrónico, número de teléfono, y cualquier otra información necesaria para proporcionarte nuestros servicios de salud.</p>
-  
-          <h3 class="text-2xl font-semibold text-gray-800">2. Uso de la Información</h3>
-          <p>Utilizamos tu información personal para mejorar tu experiencia en Septi-Salud, brindarte atención médica personalizada y enviarte comunicaciones importantes relacionadas con nuestros servicios. También podemos utilizar tus datos para fines estadísticos y de investigación, siempre protegiendo tu anonimato.</p>
-  
-          <h3 class="text-2xl font-semibold text-gray-800">3. Protección de la Información</h3>
-          <p>Implementamos medidas de seguridad técnicas y organizativas para garantizar que tu información esté protegida contra el acceso no autorizado, la pérdida o el uso indebido.</p>
-  
-          <h3 class="text-2xl font-semibold text-gray-800">4. Derechos del Usuario</h3>
-          <p>Tienes derecho a acceder, rectificar y eliminar tu información personal en cualquier momento. Si deseas ejercer estos derechos, puedes ponerte en contacto con nosotros a través de nuestro correo electrónico o teléfono.</p>
+
+          <div *ngFor="let poli of politicas">
+            <h3 class="text-2xl font-semibold text-gray-800">{{poli.title}}</h3>
+            <p class="text-justify text-gray-700">{{poli.resume}}</p>
+            <ul *ngIf="poli.items" class="list-disc list-inside text-gray-700">
+                <li class="pl-4" *ngFor="let item of poli.items">{{item}}</li>
+            </ul>
+          </div>
         </div>
       </section>
   
@@ -31,19 +27,14 @@
       <section>
         <h2 class="text-3xl font-bold text-blue-600 mb-6">Términos de Servicio</h2>
         <div class="text-justify text-gray-700 space-y-6">
-          <p>Estos términos y condiciones regulan el uso de los servicios ofrecidos por Septi-Salud. Al acceder a nuestro sitio web o utilizar nuestros servicios, aceptas cumplir con los siguientes términos.</p>
-  
-          <h3 class="text-2xl font-semibold text-gray-800">1. Uso de los Servicios</h3>
-          <p>Los servicios proporcionados por Septi-Salud están destinados exclusivamente para uso personal y no comercial. Queda prohibido el uso no autorizado de nuestro sitio web o de cualquier contenido con fines comerciales.</p>
-  
-          <h3 class="text-2xl font-semibold text-gray-800">2. Responsabilidades del Usuario</h3>
-          <p>Es responsabilidad del usuario proporcionar información precisa y actualizada. Septi-Salud no se responsabiliza por daños o perjuicios derivados del uso indebido de la información proporcionada en nuestro sitio.</p>
-  
-          <h3 class="text-2xl font-semibold text-gray-800">3. Modificaciones en los Términos</h3>
-          <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Cualquier cambio será comunicado oportunamente a nuestros usuarios a través de nuestro sitio web.</p>
-  
-          <h3 class="text-2xl font-semibold text-gray-800">4. Ley Aplicable</h3>
-          <p>Estos términos se rigen por las leyes de Colombia. Cualquier disputa relacionada con el uso de nuestros servicios se resolverá ante los tribunales competentes del país.</p>
+
+            <div *ngFor="let term of terminos">
+                <h3 class="text-2xl font-semibold text-gray-800">{{term.title}}</h3>
+                <p class="text-justify text-gray-700">{{term.resume}}</p>
+                <ul *ngIf="term.items" class="list-disc list-inside text-gray-700">
+                    <li class="pl-4" *ngFor="let item of term.items">{{item}}</li>
+                </ul>
+            </div>
         </div>
       </section>
     </main>
