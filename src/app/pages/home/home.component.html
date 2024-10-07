@@ -10,31 +10,14 @@
   <section class="container mx-auto py-12">
     <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Noticias Destacadas</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Noticia 1 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img src="assets/img/niña.jpg" alt="Noticia 1" class="w-full h-48 object-cover">
+
+      <!-- Noticias -->
+      <div *ngFor="let item of newsItem" class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <img src="{{item.img}}" alt="{{item.alt}}" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Nueva Apertura en Nuestra Red de Centros</h3>
-          <p class="text-gray-600 mb-4">Nos complace anunciar la apertura de un nuevo centro de atención médica en la ciudad.</p>
+          <h3 class="text-xl font-semibold mb-2">{{item.title}}</h3>
+          <p class="text-gray-600 mb-4">{{item.resumen}}</p>
           <a href="#" class="text-blue-600 font-semibold">Leer más</a>
-        </div>
-      </div>
-      <!-- Noticia 2 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img src="assets/img/covid.jpg" alt="Noticia 2" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Campaña de Salud Preventiva</h3>
-          <p class="text-gray-600 mb-4">Participa en nuestra campaña de vacunación contra la gripe y cuida tu salud.</p>
-          <a href="#" class="text-blue-600 font-semibold">Leer más</a>
-        </div>
-      </div>
-      <!-- Noticia 3 -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img src="assets/img/citas.jpg" alt="Noticia 3" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Programa de Salud Mental</h3>
-          <p class="text-gray-600 mb-4">Conoce nuestro nuevo programa de apoyo para la salud mental en tiempos de pandemia.</p>
-          <a href="/" class="text-blue-600 font-semibold">Leer más</a>
         </div>
       </div>
     </div>
@@ -56,19 +39,9 @@
   <section class="container mx-auto py-12">
     <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Nuestros Servicios</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white shadow-lg rounded-lg p-6">
-        <h3 class="text-xl font-semibold mb-2">Atención Médica General</h3>
-        <p class="text-gray-600 mb-4">Ofrecemos consultas médicas para cuidar tu salud.</p>
-        <a href="#" class="text-blue-600 font-semibold">Saber más</a>
-      </div>
-      <div class="bg-white shadow-lg rounded-lg p-6">
-        <h3 class="text-xl font-semibold mb-2">Laboratorios Clínicos</h3>
-        <p class="text-gray-600 mb-4">Pruebas y exámenes clínicos realizados por profesionales.</p>
-        <a href="#" class="text-blue-600 font-semibold">Saber más</a>
-      </div>
-      <div class="bg-white shadow-lg rounded-lg p-6">
-        <h3 class="text-xl font-semibold mb-2">Atención de Urgencias</h3>
-        <p class="text-gray-600 mb-4">Estamos disponibles 24/7 para emergencias.</p>
+      <div *ngFor="let item of serviceItem" class="bg-white shadow-lg rounded-lg p-6">
+        <h3 class="text-xl font-semibold mb-2">{{item.title}}</h3>
+        <p class="text-gray-600 mb-4">{{item.body}}</p>
         <a href="#" class="text-blue-600 font-semibold">Saber más</a>
       </div>
     </div>
@@ -78,21 +51,9 @@
   <section class="container mx-auto py-12">
     <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Preguntas Frecuentes (FAQs)</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-      <div>
-        <h3 class="text-xl font-semibold mb-2">¿Cómo puedo agendar una cita médica?</h3>
-        <p class="text-gray-600 mb-4">Puedes agendar tu cita a través de nuestro portal en la sección de "Consultas". Solo necesitas ingresar a tu cuenta, seleccionar el tipo de consulta que deseas y elegir la fecha disponible que más te convenga. Si tienes alguna duda, nuestro equipo de soporte está disponible para asistirte.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">¿Qué documentos necesito para afiliarme?</h3>
-        <p class="text-gray-600 mb-4">Necesitas cédula de identidad, comprobante de domicilio y un documento laboral. Estos requisitos aseguran que puedas acceder a todos nuestros servicios médicos sin problemas. El proceso de afiliación es sencillo y puedes completarlo en línea en pocos minutos.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">¿Puedo consultar mi historial médico en línea?</h3>
-        <p class="text-gray-600 mb-4">Sí, accede a tu historial médico desde la sección de "Consultas". Nuestro sistema te permite revisar tu historial de manera segura y en cualquier momento, así como descargar informes médicos. Toda tu información está protegida bajo estrictos estándares de privacidad.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">¿Cómo puedo actualizar mis datos personales?</h3>
-        <p class="text-gray-600 mb-4">Accede a tu cuenta, selecciona la opción "Perfil" y modifica tus datos personales. Es importante mantener esta información actualizada para recibir notificaciones importantes y acceder a los servicios adecuados en función de tus necesidades de salud.</p>
+      <div *ngFor="let item of faqsItem" class="shadow-lg rounded-lg p-6">
+        <h3 class="text-xl font-semibold mb-2">{{item.qs}}</h3>
+        <p class="text-gray-600 mb-4">{{item.response}}</p>
       </div>
     </div>
   </section>
