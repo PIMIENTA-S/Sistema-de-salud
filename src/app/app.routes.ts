@@ -6,6 +6,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ConsultAppointmentComponent } from './pages/consult-appointment/consult-appointment.component';
 import { HistoryComponent } from './pages/history-user/history.component';
 import { authGuard } from './guards/auth.guard';
+import { PoliTermsComponent } from './pages/poli-terms/poli-terms.component';
 
 export const routes: Routes = [
     {
@@ -35,6 +36,10 @@ export const routes: Routes = [
         path: 'historia-clinica',
         component: HistoryComponent,
         canActivate: [authGuard]
+    },
+    {
+        path: 'politicas-terminos',
+        component: PoliTermsComponent
     },
     {
         path:'**',
