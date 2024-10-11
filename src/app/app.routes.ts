@@ -7,6 +7,7 @@ import { ConsultAppointmentComponent } from './pages/consult-appointment/consult
 import { HistoryComponent } from './pages/history-user/history.component';
 import { authGuard } from './guards/auth.guard';
 import { PoliTermsComponent } from './pages/poli-terms/poli-terms.component';
+import { NewsDetailsComponent } from './pages/news-details/news-details.component';
 
 export const routes: Routes = [
     {
@@ -40,6 +41,10 @@ export const routes: Routes = [
     {
         path: 'politicas-terminos',
         component: PoliTermsComponent
+    },
+    {
+        path: 'news',
+        component: NewsDetailsComponent
     },
     {
         path:'**',
