@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
@@ -31,5 +31,13 @@ export class HomeComponent {
     {qs: '¿Puedo consultar mi historial médico en línea?', response: 'Sí, accede a tu historial médico desde la sección de "Consultas". Nuestro sistema te permite revisar tu historial de manera segura y en cualquier momento, así como descargar informes médicos. Toda tu información está protegida bajo estrictos estándares de privacidad.'},
     {qs: '¿Cómo puedo actualizar mis datos personales?', response: 'Accede a tu cuenta, selecciona la opción "Perfil" y modifica tus datos personales. Es importante mantener esta información actualizada para recibir notificaciones importantes y acceder a los servicios adecuados en función de tus necesidades de salud.'}
   ]
+
+  
+  @ViewChild('servicios') serviciosSection!: ElementRef;
+
+  scrollToServices() {
+    this.serviciosSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
 
 }

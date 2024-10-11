@@ -3,7 +3,7 @@
   <section class="bg-gradient-to-r from-blue-600 to-blue-400 text-white py-20 text-center">
     <h1 class="text-4xl font-bold mb-4">Bienvenido a Septi Salud</h1>
     <p class="text-xl mb-6">Tu bienestar es nuestra prioridad. Encuentra la mejor atención médica con nosotros.</p>
-    <a href="#" class="bg-white text-blue-600 py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-gray-100">Explorar Servicios</a>
+    <a (click)="scrollToServices()" class="bg-white text-blue-600 py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-gray-100 cursor-pointer">Explorar Servicios</a>
   </section>
 
   <!-- Secciones de Interés (Noticias con Imágenes) -->
@@ -17,7 +17,7 @@
         <div class="p-6">
           <h3 class="text-xl font-semibold mb-2">{{item.title}}</h3>
           <p class="text-gray-600 mb-4">{{item.resumen}}</p>
-          <a href="#" class="text-blue-600 font-semibold">Leer más</a>
+          <a routerLink="/news" class="text-blue-600 font-semibold">Leer más</a>
         </div>
       </div>
     </div>
@@ -36,13 +36,13 @@
   </section>
 
   <!-- Sección de Servicios -->
-  <section class="container mx-auto py-12">
+  <section #servicios class="container mx-auto py-12">
     <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Nuestros Servicios</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div *ngFor="let item of serviceItem" class="bg-white shadow-lg rounded-lg p-6">
         <h3 class="text-xl font-semibold mb-2">{{item.title}}</h3>
         <p class="text-gray-600 mb-4">{{item.body}}</p>
-        <a href="#" class="text-blue-600 font-semibold">Saber más</a>
+        <a class="text-blue-600 font-semibold">Saber más</a>
       </div>
     </div>
   </section>
