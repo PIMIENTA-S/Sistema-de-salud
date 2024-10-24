@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './consult-appointment.component.html',
-  styleUrl: './consult-appointment.component.css'
+  styles: ``
 })
 export class ConsultAppointmentComponent {
   appointmentType: 'presencial' | 'virtual' = 'presencial';
