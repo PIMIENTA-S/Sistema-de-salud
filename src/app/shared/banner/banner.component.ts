@@ -1,12 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-banner',
+  selector: 'shared-banner',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './banner.component.html',
-  styleUrl: './banner.component.css'
+  styles: ``
 })
 export class BannerComponent {
+  
+  visible: boolean = true;
+
+  toogle(){
+    this.visible = !this.visible;
+  }
 
 }
