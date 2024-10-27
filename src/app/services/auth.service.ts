@@ -13,14 +13,7 @@ export class  AuthService {
 
   // Registrar un usuario
   registerUser(user: User): Observable<User>{
-    // const fs = require('fs');
 
-    // fs.readFile(this.baseUrl, 'utf8', (err: any, data: any) =>{
-    //   if (err){
-    //     console.error("erro", err);
-    //     return;
-    //   }
-    // })
     return this.http.post<User>(this.baseUrl, user);
   }
   
